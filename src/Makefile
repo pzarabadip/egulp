@@ -2,9 +2,9 @@ include gcc.arch
 
 all: egulp
 egulp: egulp.o geometry.o scf.o utilsa.o genpot.o interact.o param.o vdw.o grid.o cell.o econfig.o pcharge.o eseqparam.o psinv.o elements.o 
-	${CC} ${CFLAGS}  egulp.o geometry.o scf.o utilsa.o genpot.o interact.o param.o vdw.o grid.o cell.o econfig.o pcharge.o eseqparam.o psinv.o elements.o `pkg-config --cflags --libs gsl` -o egulp
+	${CC} ${CFLAGS}  egulp.o geometry.o scf.o utilsa.o genpot.o interact.o param.o vdw.o grid.o cell.o econfig.o pcharge.o eseqparam.o psinv.o elements.o ${INCLUDE} ${LIB} -o egulp
 egulpomp: egulp.o geometry.o scf.o utilsa.o genpotomp.o interact.o param.o vdw.o grid.o cell.o econfig.o pcharge.o eseqparam.o psinv.o elements.o 
-	${CC} ${CFLAGS}  egulp.o geometry.o scf.o utilsa.o genpotomp.o interact.o param.o vdw.o grid.o cell.o econfig.o pcharge.o eseqparam.o psinv.o elements.o `pkg-config --cflags --libs gsl` -openmp -lpthread -o egulpomp
+	${CC} ${CFLAGS}  egulp.o geometry.o scf.o utilsa.o genpotomp.o interact.o param.o vdw.o grid.o cell.o econfig.o pcharge.o eseqparam.o psinv.o elements.o ${INCLUDE} ${LIB} -openmp -lpthread -o egulpomp
 egulp.o: egulp.c geometry.h scf.h utilsa.h genpot.h param.h grid.h econfig.h pcharge.h eseqparam.h elements.h  
 	${CC} ${CFLAGS}  -c egulp.c -o egulp.o
 geometry.o: geometry.c geometry.h utilsa.h vdw.h cell.h
