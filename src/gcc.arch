@@ -1,2 +1,4 @@
 CC=gcc
-CFLAGS=-I/opt/local/include -g
+CFLAGS=-I/path/to/gsl/include/folder -g
+INCLUDE=-I/path/to/gsl/include/folder
+LIB=-L/path/to/gsl/lib/folder -lgsl -lgslcblas -lm (optional -lpthread)
