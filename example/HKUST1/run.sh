@@ -1,4 +1,5 @@
 #!/bin/bash
+export LD_LIBRARY_PATH=/path/to/gsl/lib
 rm -rf output/
 mkdir output
 ../../egulp HKUST1.cif GMP.param configure.input > output/egulp.log
