@@ -8,10 +8,23 @@ Credit to [Kadantsev et al.](http://pubs.acs.org/doi/10.1021/jz401479k)
 
 Prerequisites:
  * C compiler (either icc or gcc)
- * GNU scientific library (GSL)  
-   for ubuntu: `sudo apt-get install libgsl0-dev`
-   for macos: `sudo port install gsl`
- 
+ * GNU scientific library (GSL) - Compile from source  
+
+### Compile GSL library
+* Download the source from [GSL - Scientific Library](https://www.gnu.org/software/gsl). Following procedure is done using
+[GSL v2.5](http://mirror.inode.at/gnu/gsl/gsl-2.5.tar.gz)
+
+```bash
+tar xf gsl-2.5.tar.gz
+mkdir -p /path/to/install/folder
+cd gsl2.5
+./configure --prefix=/path/to/install/folder
+make
+make install
+```
+  
+### Compile egulp
+* gcc.arch or intel.arch in `src` folder should be edited to reflect the correct LIB and INCLUDE path of GSL.
 
 ```bash
 cd src
